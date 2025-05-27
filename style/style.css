@@ -1,0 +1,254 @@
+:root {
+  --primary-color: #d32f2f; /* Merah dimsum */
+  --secondary-color: #fff3e0; /* Krem */
+  --accent-color: #ffab91; /* Oranye pastel */
+  --text-color: #5d4037; /* Coklat tua */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+  font-family: "Covered By Your Grace", cursive;
+  color: var(--primary-color);
+}
+
+.menu-section,
+.order-section,
+.checkout-section {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 10px;
+  max-width: 1200px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.menu-item {
+  background: white;
+  padding: 0.8rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid #ffcdd2; /* Border merah muda */
+}
+
+.menu-item-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 0.8rem;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+.order-summary {
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 1rem 0;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--accent-color);
+}
+
+button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+input {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+#order-id {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--primary-color);
+}
+
+.order-confirmation {
+  /* Style untuk container pesanan akhir */
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  box-shadow: 0 2px 10px rgba(111, 78, 55, 0.1);
+}
+
+.order-item {
+  transition: all 0.3s ease;
+}
+
+.order-item:hover {
+  background: #ffeeee;
+  transform: scale(1.02);
+}
+
+.qr-section {
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.qr-container {
+  padding: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.qr-code:hover {
+  transform: scale(1.05);
+}
+
+.qr-section p {
+  margin-top: 1rem;
+  color: var(--text-color);
+  font-size: 0.85rem;
+}
+
+/* Media queries di bawah ini */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .menu-section,
+  .order-section {
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .menu-section,
+  .order-section {
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0 0.5rem;
+  }
+
+  .order-confirmation {
+    /* Tampilan fullscreen untuk mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    border-radius: 0;
+    overflow-y: auto;
+  }
+
+  .menu-item {
+    padding: 0.6rem;
+  }
+
+  button {
+    background: linear-gradient(to right, #ff5252, #d32f2f);
+    font-weight: bold;
+    font-size: 0.85rem;
+  }
+}
+
+.final-total {
+  /* Style untuk total harga */
+  border-top: 2px dashed var(--accent-color);
+  padding-top: 1rem;
+}
+
+/* Tambahan untuk layout flex main-content */
+.main-content {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.menu-section {
+  flex: 3;
+}
+
+.order-section {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1rem;
+  border-radius: 10px;
+  max-height: 600px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

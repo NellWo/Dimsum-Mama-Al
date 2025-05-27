@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ringkasan Pesanan</title>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Ringkasan Pesanan Anda</h1>
+      <p>Terima kasih telah memesan di Dimsum Mama Al</p>
+    </header>
+    <main>
+      <section class="order-confirmation">
+        <div id="order-date-time"></div>
+        <div id="final-order-summary"></div>
+        <div class="final-total">Total: Rp <span id="final-total">0</span></div>
+
+        <button onclick="window.location.href='index.html'">
+          Kembali ke Menu
+        </button>
+      </section>
+    </main>
+
+    <script>
+      // Ambil data dari localStorage
+      const finalOrderData =
+        JSON.parse(localStorage.getItem("finalOrderData")) || [];
+      const orderDateTime = localStorage.getItem("orderDateTime") || "";
+
+      // Tampilkan tanggal pesanan
+      document.getElementById(
+        "order-date-time"
+      ).textContent = `Waktu Pesanan: ${orderDateTime}`;
+
+      // Tampilkan item pesanan
+      const finalOrderSummary = document.getElementById("final-order-summary");
+      let total = 0;
+
+      finalOrderData.forEach((item) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const orderItem = document.createElement("div");
+        orderItem.className = "order-item";
+        orderItem.innerHTML = `
+                  <span>${item.name} (${item.quantity}x)</span>
+                  <span>Rp ${itemTotal.toLocaleString()}</span>
+              `;
+        finalOrderSummary.appendChild(orderItem);
+      });
+
+      // Tampilkan total akhir
+      document.getElementById("final-total").textContent =
+        total.toLocaleString();
+    </script>
+  </body>
+</html>

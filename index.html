@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dimsum Kita - Menu & Pemesanan</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/responsive.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Covered+By+Your+Grace&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>🥟 Dimsum Mama Al</h1>
+      <p>Rasa Autentik Dimsum Premium Dengan Harga Murah</p>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <section class="menu-section">
+          <h2>Menu Kami</h2>
+          <div id="category-buttons-container"></div>
+          <div class="menu-grid" id="menu-container"></div>
+        </section>
+
+        <section class="order-section">
+          <h2>Keranjang Pesanan</h2>
+          <div class="order-summary" id="order-summary"></div>
+          <div class="total-price">Total: Rp <span id="total">0</span></div>
+          <!-- Tombol langsung ke selesai pesan -->
+          <button class="confirm-btn" onclick="showOrderSummary()">
+            Selesai Pesan
+          </button>
+          <div id="final-order"></div>
+        </section>
+      </div>
+    </main>
+
+    <script src="script/script.js"></script>
+  </body>
+</html>
